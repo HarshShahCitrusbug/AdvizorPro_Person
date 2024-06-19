@@ -14,26 +14,26 @@ This project aims to build a system that analyzes data using Retrieval-Augmented
 |   |   |-- admin.py
 |   |   |-- asgi.py
 |   |   |-- management
-|   |   |   `-- commands
+|   |   |   |-- commands
 |   |   |       |-- AdvizorPro_Person_04.24.2024-1.xlsx
 |   |   |       |-- data_dump_to_json.py
 |   |   |       |-- load_brokers_from_file.py
-|   |   |       |`-- load_brokers_linkedin_data.py
+|   |   |       |-- load_brokers_linkedin_data.py
 |   |   |-- migrations
 |   |   |   |-- 0001_initial.py
 |   |   |   |-- __init__.py
 |   |   |-- models.py
 |   |   |-- settings.py
 |   |   |-- urls.py
-|   |   `-- wsgi.py
+|   |   |-- wsgi.py
 |   |-- data_1.json
 |   |-- data_2.json
 |   |-- data_3.json
 |   |-- data_4.json
 |   |-- db.sqlite3
-|   |`-- manage.py
+|   |-- manage.py
 |-- create_assistant.py
-`-- requirements.txt
+|-- requirements.txt
 ```
 
 ## Setup and Installation
