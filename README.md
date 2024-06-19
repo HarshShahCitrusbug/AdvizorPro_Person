@@ -5,7 +5,7 @@
 This project aims to build a system that analyzes data using Retrieval-Augmented Generation (RAG) based Large Language Models (LLMs). The data is initially provided in a CSV file named `AdvizorPro_Person_04.24.2024-1.csv`. The system will integrate and merge data from various sources, store it in a database, and create a chatbot capable of answering queries based on this data.
 
 ## Folder Structure
-
+```
 |-- README.md
 |-- app.py
 |-- core
@@ -34,6 +34,7 @@ This project aims to build a system that analyzes data using Retrieval-Augmented
 |   |`-- manage.py
 |-- create_assistant.py
 `-- requirements.txt
+```
 
 ## Setup and Installation
 
