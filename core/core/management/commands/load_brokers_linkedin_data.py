@@ -8,13 +8,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Fetch all brokers
-        brokers = Brokers.objects.all()
-        BrokersLinkedInProfileData.objects.all().delete()
+        brokers = Brokers.objects.all()[115:150]
+        # BrokersLinkedInProfileData.objects.all().delete()
 
-        # List to store profile data instances
-        profile_data_list = []
+        # # List to store profile data instances
+        # profile_data_list = []
 
-        for broker in brokers:
+        for index, broker in enumerate(brokers):
             if broker.linkedIn:
                 linkedin_url = broker.linkedIn
             else:
@@ -25,8 +25,9 @@ class Command(BaseCommand):
             querystring = {"url": linkedin_url}
 
             headers = {
-                "x-rapidapi-key": "2434c2db2cmsh8806e8f7d25ff91p11364djsn187b68b0660c",
+                "x-rapidapi-key": "2ff7045310msh85bca33606fe13fp11fee4jsn0dbbe5900b2a",
                 "x-rapidapi-host": "linkedin-data-api.p.rapidapi.com",
+                "Content-Type": "application/json",
             }
 
             response = requests.get(url, headers=headers, params=querystring)
@@ -67,11 +68,13 @@ class Command(BaseCommand):
                     multiLocaleLastName=data.get("multiLocaleLastName"),
                     multiLocaleHeadline=data.get("multiLocaleHeadline"),
                 )
+                profile_data.save()
 
-                # Append to the list
-                profile_data_list.append(profile_data)
+                # # Append to the list
+                # profile_data_list.append(profile_data)
+
                 print(
-                    f"Data fetched for {broker.crd} - {broker.firstName} {broker.middleName} {broker.lastName}"
+                    f"Completed data fetching for {index+1} profiles: CRD: {broker.crd} - {broker.firstName} {broker.middleName} {broker.lastName}"
                 )
             else:
                 print(response.json())
@@ -80,5 +83,5 @@ class Command(BaseCommand):
                 )
 
         # Bulk create the list of profile data instances
-        BrokersLinkedInProfileData.objects.bulk_create(profile_data_list)
-        print(f"Successfully saved {len(profile_data_list)} LinkedIn profiles.")
+        # BrokersLinkedInProfileData.objects.bulk_create(profile_data_list)
+        print("Successfully saved LinkedIn profiles.")

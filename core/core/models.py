@@ -91,10 +91,8 @@ class Brokers(models.Model):
 
 class BrokersLinkedInProfileData(models.Model):
     broker = models.ForeignKey(Brokers, on_delete=models.CASCADE)
-    urn = models.CharField(max_length=255)
-    username = models.CharField(
-        max_length=255,
-    )
+    urn = models.CharField(max_length=255, null=True, blank=True)
+    username = models.CharField(max_length=255, null=True, blank=True)
     firstName = models.CharField(max_length=255, null=True, blank=True)
     lastName = models.CharField(max_length=255, null=True, blank=True)
     isOpenToWork = models.BooleanField(null=True, blank=True)
