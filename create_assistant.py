@@ -12,14 +12,14 @@ try:
     )
 
     # Create a vector store caled "Financial Statements"
-    vector_store = client.beta.vector_stores.create(name="Broked data analyst")
+    vector_store = client.beta.vector_stores.create(name="Broker data analyst")
 
     # Ready the files for upload to OpenAI
     file_paths = [
-        "core/linkedin_data_1.json",
-        "core/linkedin_data_2.json",
-        "core/linkedin_data_3.json",
-        "core/linkedin_data_4.json",
+        "core/data_1.json",
+        "core/data_2.json",
+        "core/data_3.json",
+        "core/data_4.json",
     ]
     file_streams = [open(path, "rb") for path in file_paths]
 

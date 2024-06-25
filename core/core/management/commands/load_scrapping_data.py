@@ -29,7 +29,7 @@ class Command(BaseCommand):
                 response = scrap_broker_data_using_crd(linkedIn_broker.broker.crd)
 
                 broker_scrapping_data = BrokerScrappingData(
-                    broker=linkedIn_broker.broker,
+                    broker_linkedin_profile=linkedIn_broker,
                     content=response.get("hits", {})
                     .get("hits", [])[0]
                     .get("_source", {})
