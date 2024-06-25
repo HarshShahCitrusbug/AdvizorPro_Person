@@ -124,3 +124,13 @@ class BrokersLinkedInProfileData(models.Model):
 
     def __str__(self):
         return f"{self.broker} - {self.urn}"
+
+
+class BrokerScrappingData(models.Model):
+    broker_linkedin_profile = models.ForeignKey(
+        BrokersLinkedInProfileData, on_delete=models.CASCADE
+    )
+    content = models.JSONField(null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.broker}"
